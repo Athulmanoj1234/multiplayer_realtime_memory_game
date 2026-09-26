@@ -44,3 +44,14 @@
                               │
                               └──► (Looks up 200) ──► Terminal 2 receives message only
 
+
+
+code flow - 
+await websocket(from WebSocket).accept() - it is used to accept connection from the client to server 
+   -> it is because when a client tries to connect to websocket endpoint the the server needs to accept to establish websocket connection
+
+while true:  - we opens an infinite loop because to keep the connection persistent open
+
+data  = await websocket.receive_text() -> first The server pauses here and waits for the client to send a message as text. it returns the data that is send by the client in an websocket connected session 
+
+await websocket.send_text(f"the response received {data}") -> send we send the received text to the sended client
